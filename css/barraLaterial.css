@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+ul.sidenav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #343a40; /* Color de fondo igual que la barra inferior */
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+ul.sidenav li a {
+    display: block;
+    color: #ffffff; /* Color de texto blanco */
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+ul.sidenav li a.active {
+    background-color: #ffc107; /* Color de fondo del enlace activo */
+    color: #343a40; /* Color de texto del enlace activo */
+}
+
+ul.sidenav li a:hover:not(.active) {
+    background-color: #555555; /* Color de fondo al hacer hover */
+    color: #ffc107; /* Color de texto al hacer hover */
+}
+
+div.content {
+    margin-left: 25%;
+    padding: 30px 150px;
+    height: 1000px;
+    
+}
+
+p {
+    text-align: justify; /* Justificar el texto de los párrafos */
+}
+
+@media screen and (max-width: 900px) {
+    ul.sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    ul.sidenav li a {
+        float: left;
+        padding: 15px;
+    }
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    ul.sidenav li a {
+        text-align: center;
+        float: none;
+    }
+}

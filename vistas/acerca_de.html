@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de</title>
+    <link rel="icon" href="/imagenes/code_html_link_share_icon_123633.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/acerca.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Alinea el contenido hacia arriba */
+            align-items: flex-start; /* Evita que el contenido esté centrado */
+            text-align: justify; /* Justifica el texto */
+            padding: 40px 80px; /* Añade más espacio alrededor del contenido */
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.8); /* Fondo translúcido para suavizar el contraste */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para darle un efecto flotante */
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Asegura que el texto tenga un espacio adecuado a la derecha y izquierda */
+        @media screen and (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h2 id="acerca_de">Acerca de</h2>
+        <p>Este sitio web fue desarrollado por dos estudiantes de la carrera de <strong>Ingeniería en Sistemas</strong>,
+             Anthony Llanes Pacheco y Mario Manuel Gutierrez Bibiano, como parte de la materia <strong>Lenguajes de Interfaz</strong>, impartida por el Maestro Tomás Rios.</p>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+        <div class="container">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Inicio</a>
+                </li>
+                
+                <!-- Menú desplegable hacia arriba para "Temas" -->
+                <li class="nav-item dropup">
+                    <a class="nav-link dropdown-toggle" href="#" id="temasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Temas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="temasDropdown">
+                        <a class="dropdown-item" href="/vistas/tema1.html">Ciberseguridad</a>
+                    </div>
+                </li>
+                
+                <!-- Menú desplegable hacia arriba para "Programas" -->
+                <li class="nav-item dropup">
+                    <a class="nav-link dropdown-toggle" href="#" id="programasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Programas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="programasDropdown">
+                        <a class="dropdown-item" href="/vistas/programa1.html">Programa 1</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/vistas/contacto.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vistas/acerca_de.html">Acerca de</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

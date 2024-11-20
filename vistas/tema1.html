@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción al Lenguaje Ensamblador</title>
+    <link rel="icon" href="/imagenes/code_html_link_share_icon_123633.ico">
+    <link rel="stylesheet" href="/css/barraLaterial.css">
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h2, h3 {
+            color: #333;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0 20px;
+            text-align: justify;
+        }
+
+        /* Barra lateral */
+        .sidenav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 250px;
+            background-color: #2c3e50;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            transition: all 0.3s ease;
+        }
+
+        .sidenav li {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .sidenav a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sidenav a:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #34495e;
+        }
+
+        /* Estilo base para el contenido */
+        .content {
+            opacity: 0; /* Inicialmente oculto */
+            transform: scale(0.95); /* Ligero zoom hacia atrás */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Cuando el contenido esté visible */
+        .content.visible {
+            opacity: 1;
+            transform: scale(1); /* Zoom al tamaño normal */
+        }
+
+        ul {
+            padding-left: 40px;
+            margin: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Animaciones y transiciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content h2, .content p {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Botón volver */
+        .sidenav li:last-child a {
+            background-color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .sidenav li:last-child a:hover {
+            background-color: #c0392b;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .sidenav {
+                width: 200px;
+            }
+            .content {
+                margin-left: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidenav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .sidenav li {
+                text-align: left;
+                margin: 10px 15px;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <ul class="sidenav">
+        
+        <br>
+        <hr>
+
+        <li><a href="#que-es">¿Qué es la ciberseguridad?</a></li>
+        <li><a href="#importancia">¿Por qué es importante la ciberseguridad?</a></li>
+        <li><a href="#retos">Retos de la ciberseguridad</a></li>
+        <li><a href="#tipos">Tipos de ciberseguridad</a></li>
+        <li><a href="#amenazas">Amenazas comunes para la ciberseguridad</a></li>
+        <li><a href="#mitos">Mitos de la ciberseguridad</a></li>
+        <li><a href="#mejores-practicas">Mejores prácticas y tecnologías clave de ciberseguridad</a></li>
+        <hr>
+        <li><a href="/index.html">Volver</a></li>
+    </ul>
+
+    <div class="content">
+        <h2 id="que-es">¿Qué es la ciberseguridad?</h2>
+        <p>
+            La ciberseguridad se refiere a cualquier tecnología, práctica y política para prevenir los ataques cibernéticos
+            o mitigar su impacto. La ciberseguridad tiene como objetivo proteger los sistemas informáticos, las aplicaciones,
+            los dispositivos, los datos, los activos financieros y las personas contra el ransomware y otros programas maliciosos,
+            las estafas de phishing , el robo de datos y otras amenazas cibernéticas.
+        </p>
+
+        <h2 id="importancia">¿Por qué es importante la ciberseguridad?</h2>
+        <p>
+            La ciberseguridad es importante porque los ataques cibernéticos y el cibercrimen tienen el poder de perturbar,
+            dañar o destruir negocios, comunidades y vidas. Los ataques cibernéticos exitosos conducen al robo de identidad,
+            extorsión personal y corporativa, pérdida de información confidencial y datos críticos para el negocio, interrupciones
+            temporales del negocio, pérdida de negocios y pérdida de clientes y, en algunos casos, cierres de negocios.
+
+            Los ataques cibernéticos tienen un impacto enorme y creciente en las compañías y la economía. Según una estimación,
+            el cibercrimen costará a la economía mundial USD 10.5 billones por año para 2025.3 El costo de los ataques cibernéticos
+            continúa aumentando a medida que los ciberdelincuentes se vuelven más sofisticados.
+        </p>
+
+        <h2 id="retos">Retos de la ciberseguridad</h2>
+        <p>
+            Además del gran volumen de ataques cibernéticos, uno de los mayores desafíos para los profesionales de ciberseguridad
+            es la naturaleza en constante evolución del panorama de la tecnología de la información (TI) y la forma en que las
+            amenazas evolucionan con él. Muchas tecnologías emergentes que ofrecen enormes ventajas nuevas para empresas e individuos
+            también presentan nuevas oportunidades para que los actores de amenazas y los ciberdelincuentes lancen ataques cada vez
+            más sofisticados. Por ejemplo:
+        </p>
+
+        <ul>
+            <li>La adopción generalizada de la computación en la nube puede aumentar la complejidad de la gestión de la red y aumentar el riesgo de configuraciones erróneas de la nube, API protegidas incorrectamente y otras vías que los hackers pueden explotar.</li>
+            <li>Más trabajo remoto, trabajo híbrido y políticas de traer su propio dispositivo (BYOD)significan más conexiones, dispositivos, aplicaciones y datos para que los equipos de seguridad los protejan.</li>
+            <li>Direccionamiento Indirecto: La dirección de memoria del operando se encuentra en un registro o en otra dirección de memoria.</li>
+            <li>La proliferación de Internet de las cosas (IoT) y los dispositivos conectados, muchos de los cuales no están protegidos o no están protegidos de forma predeterminada, pueden ser fácilmente secuestrados por actores maliciosos.</li>
+            <li>El auge de lainteligencia artificial (IA),y de laIA generativa en individua, presenta un panorama de amenazas completamente nuevo que los piratas informáticos ya están explotando a través de la inyección rápida y otras técnicas. Según una investigación reciente del IBM Institute for Business Value, solo el 24% de las iniciativas de IA generativa están protegidas.</li>
+            <li>Direccionamiento Relativo: La dirección efectiva se calcula sumando un desplazamiento a la dirección de la instrucción actual.</li>
+        </ul>
+
+        <p>
+            A medida que la superficie de ataque mundial se expande, la fuerza laboral de ciberseguridad tiene dificultades
+            para seguir el ritmo. Un estudio del Foro Económico Mundial encontró que la brecha mundial de trabajadores en ciberseguridad, 
+            la brecha entre los trabajadores de ciberseguridad y los trabajos que deben llenarse, podría llegar a 85 millones de trabajadores
+            para 2030.4
+        </p>
+
+        <p>
+            Cerrar esta brecha de habilidades puede tener un impacto. Según el Informe del costo de una filtración de datos 2024, las organizaciones que sufren una escasez de competencias de seguridad de alto nivel registraron un costo medio por violación de USD 5.74 millones, frente a los USD 3.98 millones de las organizaciones con escasez de competencias de menor nivel.
+        </p>
+
+        <h2 id="tipos">Tipos de ciberseguridad</h2>
+        <p>
+            Las estrategias integrales de ciberseguridad protegen todas las capas de infraestructura de TI de una organización contra ciberamenazas y delitos cibernéticos. Algunos de los dominios de ciberseguridad más importantes incluyen:
+        </p>
+
+        <h3>Seguridad de la IA</h3>
+
+        <p>
+            La seguridad de la IA se refiere a las medidas y la tecnología destinadas a prevenir o mitigar las amenazas cibernéticas y los ataques cibernéticos que se dirigen a aplicaciones o sistemas de IA o que emplean la IA de manera maliciosa.
+            La IA generativa ofrece a los actores de amenazas nuevos vectores de ataque para explotar. Los hackers pueden emplear instrucciones maliciosas para manipular aplicaciones de IA, envenenar fuentes de datos para distorsionar los resultados de la IA e incluso engañar a las herramientas de IA para que compartan información confidencial. También pueden usar (y ya usaron) IA generativa para crear código malicioso y emails de phishing.
+        </p>
+
+        <h3>Seguridad de la infraestructura crítica</h3>
+
+        <p>
+            La seguridad de la infraestructura crítica protege los sistemas informáticos, las aplicaciones, las redes, los datos y los recursos digitales de los que depende una sociedad para la seguridad nacional, la integridad económica y la seguridad pública.
+            En Estados Unidos, el Instituto Nacional de Normas y Tecnología (NIST) ofrece un marco de ciberseguridad para ayudar a los proveedores de TI y a las partes interesadas a proteger las infraestructuras críticas.5 La Agencia de Seguridad Cibernética e Infraestructura (CISA) del Departamento de Seguridad Nacional de EE. UU. también brinda orientación.6
+        </p>
+
+        <h3>Seguridad de la red</h3>
+
+        <p>
+            La seguridad de la red se centra en evitar el acceso no autorizado a las redes y los recursos de la red. También ayuda a garantizar que los usuarios autorizados tengan acceso seguro y confiable a los recursos y activos que necesitan para hacer su trabajo.
+        </p>
+
+        <h3>Seguridad de las aplicaciones</h3>
+
+        <p>
+            La seguridad de las aplicaciones ayuda a evitar el acceso y el uso no autorizados de las aplicaciones y los datos relacionados. También ayuda a identificar y mitigar fallas o vulnerabilidades en el diseño de aplicaciones. Los métodos modernos de desarrollo de aplicaciones, como DevOps y DevSecOps , incorporan seguridad y pruebas de seguridad en el proceso de desarrollo.
+        </p>
+
+        <h3>Seguridad en la nube</h3>
+
+        <p>
+            La seguridad en la nube protege los servicios y activos basados en la nube de una organización, incluyendo aplicaciones, datos, virtual servers y otra infraestructura.
+            En términos generales, la seguridad en la nube funciona según el modelo de responsabilidad compartida. El proveedor de la nube es responsable de proteger los servicios que presta y la infraestructura que los presta. El cliente es responsable de proteger sus datos, código y otros activos que almacena o ejecuta en la nube.
+        </p>
+
+        <h3>Seguridad de la información y seguridad de los datos</h3>
+
+        <p>
+            La seguridad de la información (InfoSec) protege la información importante de una organización (archivos y datos digitales, documentos en papel, medios físicos) contra el acceso, el uso o la alteración no autorizados.
+            Seguridad de datos, la protección de la información digital, es un subconjunto de seguridad de la información y el enfoque de la mayoría de las medidas de InfoSec relacionadas con la seguridad cibernética.
+        </p>
+
+        <h3>Seguridad móvil</h3>
+
+        <p>
+            La seguridad móvil abarca herramientas y prácticas de ciberseguridad específicas para teléfonos inteligentes y otros dispositivos móviles, incluida la gestión de aplicaciones móviles (MAM) y la gestión de movilidad empresarial (EMM).
+            Más recientemente, las organizaciones están adoptando soluciones de gestión unificada endpoint (UEM) que les permiten proteger, configurar y gestionar todos los dispositivos endpoint, incluidos los dispositivos móviles, desde una única consola.
+        </p>
+
+        <h2 id="amenazas">Amenazas comunes para la ciberseguridad</h2>
+        <p>
+            Algunos de los tipos de ciberamenazas más comunes incluyen:
+        </p>
+
+        <h2 id="mitos">Modos de direccionamiento</h2>
+        <p>Los modos de direccionamiento son técnicas utilizadas por los procesadores para acceder a los operandos necesarios
+        para ejecutar instrucciones. Estos modos especifican cómo calcular la dirección de memoria efectiva de un operando
+        utilizando información contenida en registros, constantes o dentro de la propia instrucción.
+        </p>
+
+        <ul>
+            <li>Malware</li>
+            <li>Ransomware</li>
+            <li>Phishing</li>
+        </ul>
+
+        <h3>Malware</h3>
+        <p>
+            El malware, abreviatura de "software malicioso", es cualquier código de software o programa informático escrito intencionalmente para dañar un sistema informático o a sus usuarios. Casi todos los ataques cibernéticos modernos implican algún tipo de malware.
+            Los hackers y los delincuentes cibernéticos crean y utilizan malware para obtener acceso no autorizado a sistemas informáticos y datos confidenciales, secuestrar sistemas informáticos y operarlos de forma remota, interrumpir o dañar los sistemas informáticos, o retener datos o sistemas como rehenes por grandes sumas de dinero (ver "Ransomware").
+        </p>
+
+        <h3>Ransomware</h3>
+        <p>
+            El ransomware es un tipo de malware que cifra los datos o el dispositivo de una víctima y amenaza con mantenerlos cifrados, a menos que la víctima pague un rescate al atacante.
+        </p>
+
+        <h3>Phishing</h3>
+        <p>
+            Los ataques de phishing son mensajes de correo electrónico, texto o voz que engañan a los usuarios para que descarguen malware, compartan información confidencial o envíen fondos a las personas equivocadas.
+            La mayoría de los usuarios están familiarizados con las estafas de phishing masivas: mensajes fraudulentos masivos que parecen ser de una marca grande y confiable, en los cuales se pide a los destinatarios que restablezcan sus contraseñas o vuelvan a ingresar la información de su tarjeta de crédito. Las estafas de phishing más sofisticadas, como phishing selectivo y compromiso de correo electrónico empresarial (BEC), se dirigen a personas o grupos específicos para robar datos especialmente valiosos o grandes sumas de dinero.
+        </p>
+
+        <h2 id="mitos">Mitos de la ciberseguridad</h2>
+        <p>
+            A pesar de un volumen cada vez mayor de incidentes de ciberseguridad en todo el mundo y de la información obtenida al resolver estos incidentes, persisten algunos conceptos erróneos. Algunos de los más peligrosos incluyen:
+        </p>
+
+        <h3>Las contraseñas seguras por sí solas son una protección adecuada .</h3>
+        <p>
+            Las contraseñas seguras marcan la diferencia; por ejemplo, una contraseña de 12 caracteres tarda 62 billones de veces más en descifrar que una de 6 caracteres. Pero las contraseñas son relativamente fáciles de adquirir de otras formas, como mediante ingeniería social, malware de registro de pulsaciones, comprándolas en el sitio web oscuro o pagando a informadores descontentos para que las roben.
+        </p>
+
+        <h3>La mayoría de los riesgos de ciberseguridad son bien conocidos</h3>
+        <p>
+            De hecho, el panorama de las amenazas cibernéticas cambia constantemente. Cada año, se informan miles de nuevas vulnerabilidades en aplicaciones y dispositivos nuevos y antiguos. Las oportunidades de error humano, en particular, por parte de empleados o contratistas negligentes que involuntariamente causan una filtración de datos, siguen aumentando.
+        </p>
+
+        <h3>Todos los vectores de ataques cibernéticos están contenidos</h3>
+        <p>
+            Los delincuentes cibernéticos encuentran nuevos vectores de ataque todo el tiempo. El auge de las tecnologías de IA, la tecnología operativa (OT), los dispositivos de Internet de las cosas (IoT) y los entornos de nube brindan a los hackers nuevas oportunidades para causar problemas.
+        </p>
+
+        <h2 id="mejores-practicas">Mejores prácticas y tecnologías clave de ciberseguridad</h2>
+
+        <p>
+            Si bien la estrategia de ciberseguridad de cada organización difiere, muchas emplean estas herramientas y tácticas para reducir las vulnerabilidades, prevenir ataques e interceptar ataques en curso:
+        </p>
+        <ul>
+            <li>
+                Capacitación en concientización sobre seguridad
+            </li>
+            <li>
+                Herramientas de seguridad de datos
+            </li>
+            <li>
+                Gestión de identidad y acceso
+            </li>
+            <li>
+                Threat detection and response
+            </li>
+            <li>
+                Recuperación ante desastres
+            </li>
+        </ul>
+
+        <h3>Capacitación en concientización sobre seguridad</h3>
+
+        <p>
+            La capacitación en conciencia de seguridad ayuda a los usuarios a comprender cómo acciones que aparentan ser inofensivas, como usar la misma contraseña sencilla para múltiples inicios de sesión o compartir demasiado en las redes sociales, aumentan el riesgo de ataque para ellos mismos o su organización.
+            En combinación con políticas de seguridad de datos bien pensadas, la capacitación en seguridad puede ayudar a los empleados a proteger los datos personales y organizacionales confidenciales. También puede ayudarlos a reconocer y evitar ataques de phishing y malware.
+        </p>
+
+        <h3>Herramientas de seguridad de datos</h3>
+
+        <p>
+            Las herramientas de seguridad de datos, como las soluciones de cifrado y prevención de pérdida de datos (DLP), pueden ayudar a detener las amenazas de seguridad en curso o mitigar sus efectos. Por ejemplo, las herramientas DLP pueden detectar y bloquear intentos de robo de datos, mientras que el cifrado puede hacer que cualquier dato que roben los hackers sea inútil para ellos.
+        </p>
+
+        <h3>Gestión de identidad y acceso</h3>
+
+        <p>
+            La gestión de identidad y acceso (IAM) se refiere a las herramientas y estrategias que controlan cómo los usuarios acceden a los recursos y qué pueden hacer con esos recursos.
+        </p>
+
+        <p>
+            Las tecnologías de IAM pueden ayudar a proteger contra el robo de cuentas. Por ejemplo, la autenticación multifactor requiere que los usuarios proporcionen múltiples credenciales para iniciar sesión, lo que significa que los actores de amenazas necesitan algo más que una contraseña para entrar en una cuenta.
+        </p>
+
+        <p>
+            Del mismo modo, los sistemas de autenticación adaptativa detectan cuándo los usuarios tienen un comportamiento de riesgo y plantean retos de autenticación adicionales antes de permitirles continuar. La autenticación adaptativa puede ayudar a limitar el movimiento lateral de los hackers que ingresan al sistema.
+        </p>
+
+        <p>
+            Una arquitectura de confianza cero es una forma de aplicar controles de acceso estrictos mediante la verificación de todas las solicitudes de conexión entre usuarios y dispositivos, aplicaciones y datos.
+        </p>
+
+        <h3>Gestión de la superficie de ataque</h3>
+
+        <p>
+            La gestión de superficies de ataque (ASM, por sus siglas en inglés) es el descubrimiento, análisis, corrección y monitoreo continuos de las vulnerabilidades de ciberseguridad y los posibles vectores de ataque que conforman la superficie de ataque de una organización.
+            A diferencia de otras disciplinas de defensa cibernética, la ASM se realiza completamente desde la perspectiva de un hacker, en lugar de la perspectiva del defensor. Identifica los objetivos y evalúa los riesgos en función de las oportunidades que presentan a un atacante malicioso.
+        </p>
+
+        <h3>Detección y respuesta a amenazas</h3>
+
+        <p>
+            Las tecnologías basadas en el análisis y la IA pueden ayudar a identificar y responder a los ataques en curso. Estas tecnologías pueden incluir gestión de eventos e información de seguridad (SIEM), orquestación, automatización y respuesta de la seguridad (SOAR) y detección y respuesta de endpoints (EDR). Por lo general, las organizaciones emplean estas tecnologías como parte de un plan formal de respuesta a incidentes .
+        </p>
+
+    </div>
+
+    <script>
+        // Función para verificar si un elemento es visible en la ventana
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }
+
+        // Función para manejar el scroll y agregar la clase visible
+        function handleScroll() {
+            const contentSections = document.querySelectorAll('.content');
+            contentSections.forEach(section => {
+                if (isInViewport(section)) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Escuchar el evento de desplazamiento
+        window.addEventListener('scroll', handleScroll);
+
+        // Ejecutar al cargar para contenido visible inicialmente
+        document.addEventListener('DOMContentLoaded', handleScroll);
+    </script>
+
+</body>
+</html>
